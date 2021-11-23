@@ -1,0 +1,129 @@
+<html>
+<head>
+<style >
+.block {
+    /* display: table; */
+}
+.row {
+    display: grid;
+    grid-template-areas: "a b c";
+    grid-template-columns:3fr 1fr 1fr;
+}
+
+.inputContainer {
+    /* display: table-cell; */
+}
+
+.inputContainer.col1 {
+    /* width: 60%; */
+    grid:a;
+    grid-column:1/2;
+    grid-row:1;
+    /* position: relative; */
+    /* height: fit-content; */
+    /* overflow:hidden; */
+    /* min-height:30px; */
+}
+
+.inputContainer.col2 {
+    /* width: 20%; */
+    grid:b;
+    grid-column:2/3;
+    grid-row:1;
+}
+.inputContainer.col3 {
+    /* width: 20%; */
+    grid:c;
+    grid-column:3/4;
+    grid-row:1;
+}
+
+.dropdownTextArea {
+    display:grid;
+    grid-template-areas: "t";
+    grid-template-columns: 1fr;
+}
+
+textarea {
+    border: 1px solid black;
+    width:100%;
+    /* overflow-y: hidden; */
+    /* height:100%; */
+    /* display: table-cell; */
+    grid: t;
+    grid-column:1 / -1;
+    grid-row:1;
+}
+
+textarea.dropdownText {
+    width: calc(100% - 2em);
+    /* position: absolute; */
+    /* top: 0; */
+    /* bottom: 0; */
+    /* z-index:10; */
+}
+
+select.dropdown {
+    width: 100%;
+    /* position: absolute; */
+    /* top: 0; */
+    /* bottom:0; */
+    /* height: 100%; */
+    /* z-index:2; */
+    grid: t;
+    grid-column:1 / -1;
+    grid-row:1;
+}
+</style>
+
+</head>
+<body>
+<h1>title</h1>
+
+<div class="block">
+    <div class="row">
+        <div class="inputContainer col1">
+            <div class="dropdownTextArea">
+                <textarea class="dropdownText">col1</textarea>
+                <select class="dropdown">
+                    <option>1</option>
+                </select>
+            </div>
+        </div>
+        <div class="inputContainer col2">
+            <div class="dropdownTextArea">
+                <textarea>col2</textarea>
+            </div>
+            <div class="dropdownTextArea">
+                <textarea>col2</textarea>
+            </div>
+        </div>
+        <div class="inputContainer col3">
+            
+            <div class="dropdownTextArea">
+                <textarea>col3</textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+// const onTextAreaChange = elem => {
+//     const el = document.querySelector(elem);
+//     el.style.height = el.scrollHeight + 3;
+// }
+const tx = document.getElementsByTagName("textarea");
+for (let i = 0; i < tx.length; i++) {
+  tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+  tx[i].addEventListener("input", OnInput, false);
+}
+
+function OnInput() {
+  this.style.height = "auto";
+  this.style.height = (this.scrollHeight) + "px";
+}
+
+</script>
+</body>
+</html>
