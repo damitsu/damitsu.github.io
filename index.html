@@ -361,7 +361,13 @@
         input_value: 2
     }
 ];
-EJS_onGameStart = function(e) {document.querySelector("canvas.ejs_canvas").setAttribute("height","1080");}
+                window.doResize=()=>{
+                    document.querySelector("canvas.ejs_canvas").setAttribute("height","1080");
+                    setTimeout(window.doResize,1000);
+                },
+                EJS_onGameStart = function(e) {
+                    window.doResize();
+                }
                 script.src = "data/loader.js";
                 document.body.appendChild(script);
             }
