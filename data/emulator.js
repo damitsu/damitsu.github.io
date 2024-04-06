@@ -77,7 +77,7 @@ class EmulatorJS {
             'nds': 'melonds',
             'mame': 'mame2003_plus',
             'arcade': 'fbneo',
-            'psx': 'pcsx_rearmed',
+            'psx': 'mednafen_psx_hw', //'pcsx_rearmed',
             '3do': 'opera',
             'psp': 'ppsspp',
             'pce': 'mednafen_pce',
