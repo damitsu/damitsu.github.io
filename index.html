@@ -362,7 +362,11 @@
     }
 ];
                 window.doResize=()=>{
-                    document.querySelector("canvas.ejs_canvas").setAttribute("height","1080");
+                    const cvs = document.querySelector('canvas.ejs_canvas');
+                    if (cvs) {
+                        cvs.setAttribute("height","1080");
+
+                    }
                     setTimeout(window.doResize,1000);
                 },
                 EJS_onGameStart = function(e) {
